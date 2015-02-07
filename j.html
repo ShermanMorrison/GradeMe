@@ -1,65 +1,51 @@
-<html>
-	<canvas id="canvas"></canvas>
-	<head>
-		<script type="text/javascript" src="jquery/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="jspdf.js"></script>
-		<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script> 
-		<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>              
-		<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+<head>
+	<title>jsPDF</title>
 
-		<script src="j.js"></script>
-		<script>
-		     function demoFromHTML() {
-		         var doc = new jsPDF('p', 'in', 'letter');
-		         var source = $('#testcase').first();
-		         var specialElementHandlers = {
-		             '#bypassme': function(element, renderer) {
-		                 return true;
-		             }
-		         };
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="jsPDF/examples/css/smoothness/jquery-ui-1.8.17.custom.css">
+	<link rel="stylesheet" type="text/css" href="jsPDF/examples/css/main.css">
 
-		         doc.fromHTML(
-		             source, // HTML string or DOM elem ref.
-		             0.5,    // x coord
-		             0.5,    // y coord
-		             {
-		                 'width': 7.5, // max width of content on PDF
-		                 'elementHandlers': specialElementHandlers
-		             });
+	<script type="text/javascript" src="jsPDF/examples/js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="jsPDF/examples/js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jsPDF/dist/jspdf.debug.js"></script>
+	<script type="text/javascript" src="jsPDF/examples/js/basic.js"></script>
 
-		         doc.output('dataurl');
-		    }
-		</script>
-	</head>
-	<a href="javascript:demoFromHTML()" class="button">Run Code</a>
-	<div id="testcase">
-	    <h1>  
-	        We support special element handlers. Register them with jQuery-style.
-	    </h1>
-	</div>
-	 <script>
-	    function demoFromHTML() {
-        	var doc = new jsPDF('p', 'in', 'letter');
-			doc.rect(40, 20, 10, 10, 'F');
-
-	        var source = $('#testcase').first();
-	        var specialElementHandlers = {
-	            '#bypassme': function(element, renderer) {
-	                return true;
-	            }
-	        };
-
-			doc.fromHTML(
-			$('#testcase').get(0), // [Refer Exact code tutorial][2]HTML string or DOM elem ref.
-			0.5,    // x coord
-			0.5,    // y coord
-			{
-			'width': 8, // max width of content on PDF
-			//'elementHandlers': specialElementHandlers
-			});		
-
-			doc.output('dataurl');
-	    }
+	<script>
+		$(function() {
+			$("#accordion-basic, #accordion-text, #accordion-graphic").accordion({
+				autoHeight: false,
+				navigation: true
+			});
+			$( "#tabs" ).tabs();
+			$(".button").button();
+		});
 	</script>
-	<body></body>
-</html>
+	<script src = "j.js"></script>
+</head>
+
+<body>
+
+<h1>jsPDF Demos</h1>
+
+<p>Examples for using jsPDF with Data URIs below. Go <a href="https://github.com/MrRio/jsPDF">back to project homepage</a>.</p>
+
+<div id="accordion-basic">
+<h2><a href="#">Simple two-page text document</a></h2>
+<div><p><pre>var doc = new jsPDF();
+<!-- doc.text(20, 20, 'Hello world!');
+doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+doc.addPage();
+doc.text(20, 20, 'Do you like that?'); -->
+
+doc.rect(20, 20, 10, 10); 
+
+// Filled square
+doc.rect(40, 20, 10, 10, 'F');
+
+// Empty red square
+doc.setDrawColor(255,0,0);
+doc.rect(60, 20, 10, 10);
+
+
+doc.save('Test.pdf');</pre>
+<a href="javascript:demo()" class="button">Run Code</a></p></div>
