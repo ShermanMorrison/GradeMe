@@ -1,0 +1,13 @@
+#qNumbers {
+    width: 40%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+#qText {
+    width: 40%;
+    float: right;
+    margin-top: 50px;
+    margin-right: 100px;
+}
