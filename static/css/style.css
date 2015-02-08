@@ -1,11 +1,11 @@
-#qNumbers {
+#qNumbers, #login {
     width: 40%;
     float: left;
     margin-top: 50px;
     margin-left: 100px;
 }
 
-#qText {
+#qText, #register {
     width: 40%;
     float: right;
     margin-top: 50px;
@@ -14,4 +14,8 @@
 
 #upload {
 	margin: 50px 200px;
+}
+
+html {
+    overflow-y: scroll;
 }

@@ -1,9 +1,11 @@
 __author__ = 'phrayezzen'
 
-from flask import Flask, request, redirect, flash
+from flask import Flask, request, redirect, flash, jsonify, url_for
 from werkzeug import secure_filename
 import sqlite3 as lite
-from flask.ext.login import LoginManager, login_user, logout_user, login_required, session, current_user
+from flask.ext.login import LoginManager, login_user, logout_user, session, current_user
+
+from model import *
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "/Users/phrayezzen/Documents/Projects/GradeMe/imgtest"
@@ -21,66 +23,83 @@ cur = con.cursor()
 
 @lm.user_loader
 def load_user(id):
-    c = cur.execute("SELECT username from users where username = (?)", [id])
-    userrow = c.fetchone()
-    userid = userrow[0] # or whatever the index position is
-    return userid
+    c = cur.execute("SELECT * from person where username = (?)", [id])
+    user = c.fetchone()
+    return User(user['username'], user['firstName'], user['lastName'], bool(user['grader']))
 
 @app.route("/")
+@app.route("/index")
 def index():
-    if current_user is not None and current_user.is_authenticated():
-        return app.send_static_file("register.html")
+    if not session['logged_in']:
+        return redirect(url_for("login"))
     return app.send_static_file("index.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    f = request.form
-    with con:
-        cur.execute("""INSERT INTO person (firstName, lastName, username, password, school, grader)
-                       VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                       (f['first'], f['last'], f['username'], f['password'], f['school'], f['grader']))
-        con.commit()
-    session['logged_in']=True
-    login_user(f['username'])
-    flash("logged in")
-    return redirect("/")
+    if request.method == "POST":
+        f = request.form
+        with con:
+            cur.execute("""INSERT INTO person (firstName, lastName, username, password, grader)
+                           VALUES (?, ?, ?, ?, ?)""",
+                           (f['firstName'], f['lastName'], f['usernameR'], f['passwordR'], f['grader']))
+            con.commit()
+        session['logged_in'] = True
+        login_user(User(f['usernameR'], f['firstName'], f['lastName'], f['grader']))
+        flash("logged in")
+        return redirect("/")
+    elif request.method == "GET":
+        return app.send_static_file("register.html")
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    user = request.form['username']
-    passw = request.form['password']
-    c = cur.execute("SELECT username from person where username = (?)", [user])
-    userexists = c.fetchone()
-    if userexists:
-        c = cur.execute("SELECT password from person where password = (?) and username = (?)",
-                        [passw, userexists[0]])
-        passwcorrect = c.fetchone()
-        if passwcorrect:
-            session['logged_in']=True
-            login_user(user)
-            flash("logged in")
-            return redirect("/")
+    if request.method == "GET":
+        return app.send_static_file("register.html")
+    elif request.method == "POST":
+        user = request.form['username']
+        passw = request.form['password']
+        c = cur.execute("SELECT * from person where username = (?)", [user])
+        userexists = c.fetchone()
+        if userexists:
+            c = cur.execute("SELECT password from person where password = (?) and username = (?)",
+                            [passw, user])
+            passwcorrect = c.fetchone()
+            if passwcorrect:
+                print 'hi'
+                session['logged_in'] = True
+                login_user(User(userexists['username'], userexists['firstName'],
+                                userexists['lastName'], bool(userexists['grader'])))
+                flash("logged in")
+                return redirect(url_for("index"))
+            else:
+                flash("Password Failed")
+                return ('', 204)
         else:
-            return 'incorrect pw'
-    else:
-        return 'fail'
+            flash("Username Failed")
+            return ('', 204)
+
 
 @app.route("/logout")
-@login_required
 def logout():
+    session['logged_in'] = False
     logout_user()
     return redirect("/")
 
-@app.route("/upload")
+@app.route("/upload", methods=["GET", "POST"])
 def upload():
-    return app.send_static_file("upload.html")
+    if request.method == "GET":
+        return app.send_static_file("upload.html")
+    elif request.method == "POST":
+        files = request.files.getlist("files[]")
+        for i in files:
+            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
+        return ('', 204)
 
-@app.route("/uplod", methods=["POST"])
-def uplod():
-    files = request.files.getlist("files[]")
-    for i in files:
-        i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
-    return ('', 204)
+@app.route("/professor")
+def professor():
+    with con:
+        cur.execute("""SELECT firstName, lastName, username FROM person WHERE grader = ?""", (str(0),))
+        contact = {"result": cur.fetchall()}
+        return jsonify(contact)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
