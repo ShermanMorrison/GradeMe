@@ -27,7 +27,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/" class="active">Print<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/">Print<span class="sr-only">(current)</span></a></li>
+            <li><a href="/assign">Assign</a></li>
             <li><a href="/upload">Upload</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -46,16 +47,25 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-6 control-label" for="qPerPage">Questions per Page</label>  
-        <div class="col-md-3">
-        <input id="qPerPage" name="qPerPage" type="text" placeholder="3" class="form-control input-md">
+        <label class="col-md-4 control-label" for="testName">Test Name</label>
+        <div class="col-md-6">
+        <input id="testName" name="testName" type="text" placeholder="COMP140 Midterm" class="form-control input-md">
           
         </div>
       </div>
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-6 control-label" for="qTotal">Total Questions</label>  
+        <label class="col-md-4 control-label" for="qPerPage">Questions per Page</label>
+        <div class="col-md-3">
+        <input id="qPerPage" name="qPerPage" type="text" placeholder="3" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="qTotal">Total Questions</label>
         <div class="col-md-3">
         <input id="qTotal" name="qTotal" type="text" placeholder="40" class="form-control input-md">
           
@@ -64,7 +74,7 @@
 
       <!-- Select Basic -->
         <div class="form-group">
-          <label class="col-md-6 control-label" for="professor">Professor</label>
+          <label class="col-md-4 control-label" for="professor">Professor</label>
           <div class="col-md-3">
             <select id="professor" name="professor" class="form-control">
             </select>
@@ -76,7 +86,7 @@
 
       <!-- Button -->
       <div class="form-group">
-        <label class="col-md-6 control-label" for="submit"></label>
+        <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-3">
           <button id="submit" name="submit" class="btn btn-primary">Create Template</button>
         </div>

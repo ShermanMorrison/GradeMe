@@ -13,21 +13,22 @@ CREATE TABLE person (
 
 CREATE TABLE test (
   tId INTEGER PRIMARY KEY UNIQUE,
+  name TEXT,
   professor TEXT,
   qPerPage INTEGER,
   qTotal INTEGER
 );
 
-CREATE TABLE person2person (
+CREATE TABLE professor2grader (
   professor TEXT,
   grader TEXT,
   PRIMARY KEY(professor, grader)
 );
 
-
-CREATE TABLE person2test (
+CREATE TABLE grader2question (
   username TEXT,
   tId INTEGER,
   grader INTEGER,
-  PRIMARY KEY(username, tId)
+  question INTEGER,
+  PRIMARY KEY(tId, question)
 );
