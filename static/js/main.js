@@ -22,6 +22,17 @@ $(document).ready(function() {
     for (var i = 1; i <= $("#qTotal")[0].value; i++) {
       questionTexts.push($("#q" + i)[0].value);
     }
-    drawPDF(questionTexts, $("#qPerPage")[0].value)
+    drawPDF(questionTexts, $("#qPerPage")[0].value);
+
+    $.post("/test", $("form").serialize());
+  });
+
+  $.getJSON("/professor", function(result) {
+      var professors = result["result"];
+      for (var i = 0; i < professors.length; i++) {
+          var professor = professors[i];
+          $("#professor").append('<option value="' + professor["username"] + '">' +
+          professor["firstName"] + " " + professor["lastName"] + "</option>");
+      }
   });
 });

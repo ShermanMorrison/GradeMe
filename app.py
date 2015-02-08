@@ -77,7 +77,6 @@ def login():
             flash("Username Failed")
             return ('', 204)
 
-
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
@@ -100,6 +99,21 @@ def professor():
         cur.execute("""SELECT firstName, lastName, username FROM person WHERE grader = ?""", (str(0),))
         contact = {"result": cur.fetchall()}
         return jsonify(contact)
+
+@app.route("/test", methods=["GET", "POST"])
+def test():
+    if request.method == "POST":
+        f = request.form
+        with con:
+            cur.execute("""INSERT INTO test (professor, qPerPage, qTotal)
+                           VALUES (?, ?, ?)""",
+                           (f['professor'], f['qPerPage'], f['qTotal']))
+            con.commit()
+            cur.execute("""SELECT * FROM contact WHERE contactId = ?""", (str(cur.lastrowid),))
+            contact = {"result": [cur.fetchone()]}
+            return jsonify(contact)
+    elif request.method == "GET":
+        return 'hi'
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
