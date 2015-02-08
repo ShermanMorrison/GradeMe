@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<canvas id="canvas"></canvas>
+		<table>	
+			<tr>
+				<td>
+					<input id="clrButton" type="button" value="Clear"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<script src = "static/js/jToTest.js"></script>
+				</td>
+			</tr>
+		</table>
+
+		<script type="text/javascript" src="static/js/jsPDF/examples/js/jquery/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="static/js/jsPDF/examples/js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+		
+		<script>
+			window.onload = function(){
+				getimg();
+			};
+			function getimg(){
+				//Combine multiple graded image pages into 1 graded image page
+				//Ex: 	Grader 1 checked #5,7 on page 1 (these appear as #1,2)
+				//		Grader 2 checked #6,8 on page 2 (these appear as #5,6)
+
+				//image input
+
+				var img= new Image();
+				img.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-1.png";
+				var img2= new Image();
+				img2.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-2.png";
+				var imgArray = [img, img2];
+
+				var graderQArray = [[5,7],[6,8]];
+				var qPerPage = 4;
+
+				lowQ = 5;
+				render(imgArray, graderQArray, qPerPage, lowQ);
+			};
+		</script>
+
+	</head>
+	<body> <!-- onLoad="getimg()"> --></body>
+</html>

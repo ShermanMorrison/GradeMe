@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b113036b-eef2-46d4-91a8-3b1b59576606" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pdfs/Test-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pdfs/Test-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pdfs/Test-3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/pdfs/Test.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jToGrade.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jToGrade.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jToTest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jToTest.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grader.db" afterPath="$PROJECT_DIR$/grader.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/assign.html" afterPath="$PROJECT_DIR$/static/assign.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/assign.js" afterPath="$PROJECT_DIR$/static/js/assign.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.sql" afterPath="$PROJECT_DIR$/init.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jGrade.html" afterPath="$PROJECT_DIR$/jGrade.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/jGrade.js" afterPath="$PROJECT_DIR$/static/js/jGrade.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GradeMe.iws" />
@@ -33,23 +40,23 @@
       <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1738" max-vertical-offset="2415">
-              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1753" max-vertical-offset="2415">
+              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
               <folding>
                 <element signature="e#27#94#0" expanded="true" />
-                <marker date="1423387693000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
-                <marker date="1423387693000" expanded="true" signature="1429:1499" placeholder="INSERT INTO ..." />
-                <marker date="1423387693000" expanded="true" signature="2117:2235" placeholder="INSERT INTO ..." />
-                <marker date="1423387693000" expanded="true" signature="2521:2614" placeholder="INSERT INTO ..." />
-                <marker date="1423387693000" expanded="true" signature="3193:3234" placeholder="SELECT * fro..person..." />
-                <marker date="1423387693000" expanded="true" signature="3331:3398" placeholder="SELECT passw..person..." />
-                <marker date="1423387693000" expanded="true" signature="4200:4265" placeholder="SELECT first..person..." />
-                <marker date="1423387693000" expanded="true" signature="4519:4618" placeholder="INSERT INTO ..." />
-                <marker date="1423387693000" expanded="true" signature="4760:5640" placeholder="INSERT INTO ..." />
-                <marker date="1423387693000" expanded="true" signature="4923:5640" placeholder="SELECT tId, ..test..." />
-                <marker date="1423387693000" expanded="true" signature="4923:4977" placeholder="SELECT tId, ..test..." />
-                <marker date="1423387693000" expanded="true" signature="5284:5434" placeholder="SELECT first..person..." />
-                <marker date="1423387693000" expanded="true" signature="5378:5433" placeholder="SELECT grade..professor2grader..." />
+                <marker date="1423389695000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
+                <marker date="1423389695000" expanded="true" signature="1456:1526" placeholder="INSERT INTO ..." />
+                <marker date="1423389695000" expanded="true" signature="2144:2262" placeholder="INSERT INTO ..." />
+                <marker date="1423389695000" expanded="true" signature="2548:2641" placeholder="INSERT INTO ..." />
+                <marker date="1423389695000" expanded="true" signature="3220:3261" placeholder="SELECT * fro..person..." />
+                <marker date="1423389695000" expanded="true" signature="3358:3425" placeholder="SELECT passw..person..." />
+                <marker date="1423389695000" expanded="true" signature="4227:4292" placeholder="SELECT first..person..." />
+                <marker date="1423389695000" expanded="true" signature="4546:4645" placeholder="INSERT INTO ..." />
+                <marker date="1423389695000" expanded="true" signature="4787:5667" placeholder="INSERT INTO ..." />
+                <marker date="1423389695000" expanded="true" signature="4950:5667" placeholder="SELECT tId, ..test..." />
+                <marker date="1423389695000" expanded="true" signature="4950:5004" placeholder="SELECT tId, ..test..." />
+                <marker date="1423389695000" expanded="true" signature="5311:5461" placeholder="SELECT first..person..." />
+                <marker date="1423389695000" expanded="true" signature="5405:5460" placeholder="SELECT grade..professor2grader..." />
               </folding>
             </state>
           </provider>
@@ -620,23 +627,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="418" max-vertical-offset="2415">
-          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1753" max-vertical-offset="2415">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
           <folding>
             <element signature="e#27#94#0" expanded="true" />
-            <marker date="1423387693000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
-            <marker date="1423387693000" expanded="true" signature="1429:1499" placeholder="INSERT INTO ..." />
-            <marker date="1423387693000" expanded="true" signature="2117:2235" placeholder="INSERT INTO ..." />
-            <marker date="1423387693000" expanded="true" signature="2521:2614" placeholder="INSERT INTO ..." />
-            <marker date="1423387693000" expanded="true" signature="3193:3234" placeholder="SELECT * fro..person..." />
-            <marker date="1423387693000" expanded="true" signature="3331:3398" placeholder="SELECT passw..person..." />
-            <marker date="1423387693000" expanded="true" signature="4200:4265" placeholder="SELECT first..person..." />
-            <marker date="1423387693000" expanded="true" signature="4519:4618" placeholder="INSERT INTO ..." />
-            <marker date="1423387693000" expanded="true" signature="4760:5640" placeholder="INSERT INTO ..." />
-            <marker date="1423387693000" expanded="true" signature="4923:5640" placeholder="SELECT tId, ..test..." />
-            <marker date="1423387693000" expanded="true" signature="4923:4977" placeholder="SELECT tId, ..test..." />
-            <marker date="1423387693000" expanded="true" signature="5284:5434" placeholder="SELECT first..person..." />
-            <marker date="1423387693000" expanded="true" signature="5378:5433" placeholder="SELECT grade..professor2grader..." />
+            <marker date="1423389695000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
+            <marker date="1423389695000" expanded="true" signature="1456:1526" placeholder="INSERT INTO ..." />
+            <marker date="1423389695000" expanded="true" signature="2144:2262" placeholder="INSERT INTO ..." />
+            <marker date="1423389695000" expanded="true" signature="2548:2641" placeholder="INSERT INTO ..." />
+            <marker date="1423389695000" expanded="true" signature="3220:3261" placeholder="SELECT * fro..person..." />
+            <marker date="1423389695000" expanded="true" signature="3358:3425" placeholder="SELECT passw..person..." />
+            <marker date="1423389695000" expanded="true" signature="4227:4292" placeholder="SELECT first..person..." />
+            <marker date="1423389695000" expanded="true" signature="4546:4645" placeholder="INSERT INTO ..." />
+            <marker date="1423389695000" expanded="true" signature="4787:5667" placeholder="INSERT INTO ..." />
+            <marker date="1423389695000" expanded="true" signature="4950:5667" placeholder="SELECT tId, ..test..." />
+            <marker date="1423389695000" expanded="true" signature="4950:5004" placeholder="SELECT tId, ..test..." />
+            <marker date="1423389695000" expanded="true" signature="5311:5461" placeholder="SELECT first..person..." />
+            <marker date="1423389695000" expanded="true" signature="5405:5460" placeholder="SELECT grade..professor2grader..." />
           </folding>
         </state>
       </provider>
