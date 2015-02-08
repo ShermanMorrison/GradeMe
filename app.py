@@ -25,7 +25,6 @@ cur = con.cursor()
 def load_user(id):
     c = cur.execute("SELECT * from person where username = (?)", [id])
     userrow = c.fetchone()
-    print id
     return User(userrow['username'], userrow['firstName'], userrow['lastName'], bool(userrow['grader']))
 
 @app.route("/")
@@ -42,6 +41,7 @@ def assign():
     elif request.method == "POST":
         f = request.form
         qs = f.getlist("questions[]")
+        print qs
         for q in qs:
             with con:
                 cur.execute("""INSERT INTO grader2question (username, tId, question) VALUES (?, ?, ?)""",
@@ -52,6 +52,16 @@ def assign():
 def upload():
     if request.method == "GET":
         return app.send_static_file("upload.html")
+    elif request.method == "POST":
+        files = request.files.getlist("files[]")
+        for i in files:
+            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
+        return ('', 204)
+
+@app.route("/grade", methods=["GET", "POST"])
+def grade():
+    if request.method == "GET":
+        return app.send_static_file("grade.html")
     elif request.method == "POST":
         files = request.files.getlist("files[]")
         for i in files:
@@ -150,9 +160,20 @@ def grader():
             cur.execute("""SELECT firstName, lastName, username FROM person WHERE username IN
                           (SELECT grader FROM professor2grader WHERE professor = ?)""",
                         [current_user.username])
-            return jsonify({"result": cur.fetchall()})
+            return jsonify({"result": cur.fetchall(),
+                            "self": [current_user.username, current_user.first_name, current_user.last_name]})
     else:
         return 'hi'
+
+@app.route("/question/<string:test>")
+def question(test):
+    print test
+
+    with con:
+        cur.execute("""SELECT question FROM grader2question WHERE tId = ? AND username = ?""",
+                    [test, current_user.username])
+        return jsonify({"result": cur.fetchall()})
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

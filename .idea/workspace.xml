@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b113036b-eef2-46d4-91a8-3b1b59576606" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grader.db" afterPath="$PROJECT_DIR$/grader.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/grade.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/grade.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/assign.html" afterPath="$PROJECT_DIR$/static/assign.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/assign.js" afterPath="$PROJECT_DIR$/static/js/assign.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/index.html" afterPath="$PROJECT_DIR$/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/register.html" afterPath="$PROJECT_DIR$/static/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/upload.html" afterPath="$PROJECT_DIR$/static/upload.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -36,63 +36,77 @@
       <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1708" max-vertical-offset="2445">
-              <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="2760">
+              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
               <folding>
                 <element signature="e#27#94#0" expanded="true" />
-                <marker date="1423395202000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
-                <marker date="1423395202000" expanded="true" signature="1456:1526" placeholder="INSERT INTO ..." />
-                <marker date="1423395202000" expanded="true" signature="2144:2262" placeholder="INSERT INTO ..." />
-                <marker date="1423395202000" expanded="true" signature="2548:2641" placeholder="INSERT INTO ..." />
-                <marker date="1423395202000" expanded="true" signature="3220:3261" placeholder="SELECT * fro..person..." />
-                <marker date="1423395202000" expanded="true" signature="3358:3425" placeholder="SELECT passw..person..." />
-                <marker date="1423395202000" expanded="true" signature="4227:4292" placeholder="SELECT first..person..." />
-                <marker date="1423395202000" expanded="true" signature="4649:4748" placeholder="INSERT INTO ..." />
-                <marker date="1423395202000" expanded="true" signature="4890:5830" placeholder="INSERT INTO ..." />
-                <marker date="1423395202000" expanded="true" signature="5071:5830" placeholder="SELECT tId, ..test..." />
-                <marker date="1423395202000" expanded="true" signature="5071:5125" placeholder="SELECT tId, ..test..." />
-                <marker date="1423395202000" expanded="true" signature="5474:5624" placeholder="SELECT first..person..." />
-                <marker date="1423395202000" expanded="true" signature="5568:5623" placeholder="SELECT grade..professor2grader..." />
+                <marker date="1423398053000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
+                <marker date="1423398053000" expanded="true" signature="1460:1530" placeholder="INSERT INTO ..." />
+                <marker date="1423398053000" expanded="true" signature="2507:2625" placeholder="INSERT INTO ..." />
+                <marker date="1423398053000" expanded="true" signature="2911:3004" placeholder="INSERT INTO ..." />
+                <marker date="1423398053000" expanded="true" signature="3583:3624" placeholder="SELECT * fro..person..." />
+                <marker date="1423398053000" expanded="true" signature="3721:3788" placeholder="SELECT passw..person..." />
+                <marker date="1423398053000" expanded="true" signature="4590:4655" placeholder="SELECT first..person..." />
+                <marker date="1423398053000" expanded="true" signature="5012:5111" placeholder="INSERT INTO ..." />
+                <marker date="1423398053000" expanded="true" signature="5253:6590" placeholder="INSERT INTO ..." />
+                <marker date="1423398053000" expanded="true" signature="5434:6590" placeholder="SELECT tId, ..test..." />
+                <marker date="1423398053000" expanded="true" signature="5434:5488" placeholder="SELECT tId, ..test..." />
+                <marker date="1423398053000" expanded="true" signature="5837:5987" placeholder="SELECT first..person..." />
+                <marker date="1423398053000" expanded="true" signature="5931:5986" placeholder="SELECT grade..professor2grader..." />
+                <marker date="1423398053000" expanded="true" signature="6348:6590" placeholder="SELECT quest..grader2question..." />
+                <marker date="1423398053000" expanded="true" signature="6348:6415" placeholder="SELECT quest..grader2question..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/upload.js">
+      <file leaf-file-name="assign.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/assign.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-              <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="24" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.86706054" vertical-offset="58" max-vertical-offset="750">
+              <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#43#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.sql" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/init.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/main.js">
+      <file leaf-file-name="grade.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/grade.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-              <caret line="34" column="90" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="1560">
+              <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/index.html">
+      <file leaf-file-name="grade.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/grade.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3568147" vertical-offset="937" max-vertical-offset="1755">
-              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="750">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/upload.html">
+      <file leaf-file-name="assign.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/assign.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="1530">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state vertical-scroll-proportion="5.9166665" vertical-offset="577" max-vertical-offset="1380">
+              <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -115,17 +129,19 @@
         <option value="$PROJECT_DIR$/static/js/jspdf.js" />
         <option value="$PROJECT_DIR$/static/js/draw.js" />
         <option value="$PROJECT_DIR$/static/js/login.js" />
-        <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/model/User.py" />
         <option value="$PROJECT_DIR$/init.sql" />
         <option value="$PROJECT_DIR$/static/register.html" />
-        <option value="$PROJECT_DIR$/static/assign.html" />
-        <option value="$PROJECT_DIR$/static/js/assign.js" />
-        <option value="$PROJECT_DIR$/static/upload.html" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/js/upload.js" />
         <option value="$PROJECT_DIR$/static/js/main.js" />
         <option value="$PROJECT_DIR$/static/index.html" />
+        <option value="$PROJECT_DIR$/static/assign.html" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
+        <option value="$PROJECT_DIR$/static/grade.html" />
+        <option value="$PROJECT_DIR$/static/js/grade.js" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/static/upload.html" />
+        <option value="$PROJECT_DIR$/static/js/assign.js" />
       </list>
     </option>
   </component>
@@ -274,6 +290,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradeMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradeMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imgtest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -285,6 +315,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -489,6 +524,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907802" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -499,7 +535,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -552,42 +587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/draw.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42097488" vertical-offset="150" max-vertical-offset="1095">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/User.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
           <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0234375" vertical-offset="405" max-vertical-offset="2460">
-          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/assign.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3568147" vertical-offset="187" max-vertical-offset="1365">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -600,52 +603,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.sql">
+    <entry file="file://$PROJECT_DIR$/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.6891271" vertical-offset="45" max-vertical-offset="1770">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/assign.js">
+    <entry file="file://$PROJECT_DIR$/static/js/draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24667652" vertical-offset="13" max-vertical-offset="690">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="1530">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1155">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1708" max-vertical-offset="2445">
-          <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-          <folding>
-            <element signature="e#27#94#0" expanded="true" />
-            <marker date="1423395202000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
-            <marker date="1423395202000" expanded="true" signature="1456:1526" placeholder="INSERT INTO ..." />
-            <marker date="1423395202000" expanded="true" signature="2144:2262" placeholder="INSERT INTO ..." />
-            <marker date="1423395202000" expanded="true" signature="2548:2641" placeholder="INSERT INTO ..." />
-            <marker date="1423395202000" expanded="true" signature="3220:3261" placeholder="SELECT * fro..person..." />
-            <marker date="1423395202000" expanded="true" signature="3358:3425" placeholder="SELECT passw..person..." />
-            <marker date="1423395202000" expanded="true" signature="4227:4292" placeholder="SELECT first..person..." />
-            <marker date="1423395202000" expanded="true" signature="4649:4748" placeholder="INSERT INTO ..." />
-            <marker date="1423395202000" expanded="true" signature="4890:5830" placeholder="INSERT INTO ..." />
-            <marker date="1423395202000" expanded="true" signature="5071:5830" placeholder="SELECT tId, ..test..." />
-            <marker date="1423395202000" expanded="true" signature="5071:5125" placeholder="SELECT tId, ..test..." />
-            <marker date="1423395202000" expanded="true" signature="5474:5624" placeholder="SELECT first..person..." />
-            <marker date="1423395202000" expanded="true" signature="5568:5623" placeholder="SELECT grade..professor2grader..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -659,17 +629,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+        <state vertical-scroll-proportion="0.7533235" vertical-offset="0" max-vertical-offset="677">
           <caret line="34" column="90" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/index.html">
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3568147" vertical-offset="937" max-vertical-offset="1755">
-          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.15509601" vertical-offset="0" max-vertical-offset="677">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/grade.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="1560">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="2760">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding>
+            <element signature="e#27#94#0" expanded="true" />
+            <marker date="1423398053000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
+            <marker date="1423398053000" expanded="true" signature="1460:1530" placeholder="INSERT INTO ..." />
+            <marker date="1423398053000" expanded="true" signature="2507:2625" placeholder="INSERT INTO ..." />
+            <marker date="1423398053000" expanded="true" signature="2911:3004" placeholder="INSERT INTO ..." />
+            <marker date="1423398053000" expanded="true" signature="3583:3624" placeholder="SELECT * fro..person..." />
+            <marker date="1423398053000" expanded="true" signature="3721:3788" placeholder="SELECT passw..person..." />
+            <marker date="1423398053000" expanded="true" signature="4590:4655" placeholder="SELECT first..person..." />
+            <marker date="1423398053000" expanded="true" signature="5012:5111" placeholder="INSERT INTO ..." />
+            <marker date="1423398053000" expanded="true" signature="5253:6590" placeholder="INSERT INTO ..." />
+            <marker date="1423398053000" expanded="true" signature="5434:6590" placeholder="SELECT tId, ..test..." />
+            <marker date="1423398053000" expanded="true" signature="5434:5488" placeholder="SELECT tId, ..test..." />
+            <marker date="1423398053000" expanded="true" signature="5837:5987" placeholder="SELECT first..person..." />
+            <marker date="1423398053000" expanded="true" signature="5931:5986" placeholder="SELECT grade..professor2grader..." />
+            <marker date="1423398053000" expanded="true" signature="6348:6590" placeholder="SELECT quest..grader2question..." />
+            <marker date="1423398053000" expanded="true" signature="6348:6415" placeholder="SELECT quest..grader2question..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1796875" vertical-offset="1815" max-vertical-offset="2460">
+          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4921875" vertical-offset="690" max-vertical-offset="1545">
+          <caret line="67" column="64" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assign.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.9166665" vertical-offset="577" max-vertical-offset="1380">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/grade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="750">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/assign.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86706054" vertical-offset="58" max-vertical-offset="750">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

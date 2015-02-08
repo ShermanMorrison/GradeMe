@@ -23,6 +23,8 @@ $(document).ready(function() {
     });
 
     $.getJSON("/grader", function(result) {
+        $("#grader").append('<option value="' + result["self"][0] + '">' +
+            result["self"][1] + " " + result["self"][2] + "</option>");
         var graders = result["result"];
         for (var i = 0; i < graders.length; i++) {
             var grader = graders[i];
@@ -33,11 +35,13 @@ $(document).ready(function() {
 
     $("#test").on("change", updateQuestions);
 
-    $("#assign").on("click", function() {
-        var toDelete = $("#questions option:selected");
-        var l = toDelete.length;
-        for (var i = l-1; i >= 0; i--) {
-            toDelete[i].remove();
-        }
-    });
+    setTimeout(function() {
+        $("#assign").on("click", function () {
+            var toDelete = $("#questions option:selected");
+            var l = toDelete.length;
+            for (var i = l - 1; i >= 0; i--) {
+                toDelete[i].remove();
+            }
+        });
+    }, 1000);
 });

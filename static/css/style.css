@@ -1,11 +1,11 @@
-#qNumbers, #login {
+#qNumbers, #login, #qToGrade {
     width: 40%;
     float: left;
     margin-top: 50px;
     margin-left: 100px;
 }
 
-#qText, #register {
+#qText, #register, #qCanvas {
     width: 40%;
     float: right;
     margin-top: 50px;
