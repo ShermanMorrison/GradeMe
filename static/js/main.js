@@ -19,10 +19,9 @@ $(document).ready(function() {
 
   $("#submit").on("click", function() {
     var questionTexts = [];
-    var numQuestions = $("#qTotal")[0].value;
-    for (var i = 1; i <= numQuestions; i++) {
+    for (var i = 1; i <= $("#qTotal")[0].value; i++) {
       questionTexts.push($("#q" + i)[0].value);
     }
-    drawPDF(questionTexts, numQuestions)
+    drawPDF(questionTexts, $("#qPerPage")[0].value)
   });
 });

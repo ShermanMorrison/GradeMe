@@ -13,22 +13,25 @@ function drawLines(doc,lines,heightQ,width){
 		doc.line(15, (i+1) * heightQ, width, (i+1) * heightQ);
 	}
 }
-function drawText(doc, textArray, qPerPage, heightQ, page){
+function drawText(doc, textArray, qPerPage, heightQ, width, page){
 	doc.setTextColor(100);
 
 	for (var i = 0; i<qPerPage; i++){
 		if ((qPerPage * page + i) >= textArray.length){
 			return;
 		}
-		doc.text(20, heightQ * i + 20, (qPerPage * page + i + 1) + ")")
-		doc.text(20, heightQ * i + 40, textArray[qPerPage * page + i]);
+		doc.text(20, heightQ * i + 20, (qPerPage * page + i + 1) + ")");
+		var array = doc.splitTextToSize(textArray[qPerPage * page + i], width - 50);
+		doc.text(35, heightQ * i + 20, array);
 	}
 	
 }
 
 //Event Listener to download PDF
 function drawPDF(inputArray,qPerPage) {
+
 	var width = 195;
+
 	var height = 290;
 
 	var totalQ = inputArray.length;	 
@@ -45,18 +48,18 @@ function drawPDF(inputArray,qPerPage) {
 	var heightQ = height / qPerPage;
 
 	var doc = new jsPDF();
-	doc.setLineWidth(5);
+	
 
 	//	draw the lines in the first page
 	drawLines(doc,lines,heightQ,width);
 	//	draw the text in the first page
-	drawText(doc, inputArray, qPerPage, heightQ, 0);
+	drawText(doc, inputArray, qPerPage, heightQ, width, 0);
 
 	// draw the lines and text on remaining pages
 	for (var i = 1; i < numPages; i++){
 		doc.addPage();
 		drawLines(doc,lines,heightQ,width);
-		drawText(doc, inputArray, qPerPage, heightQ, i);
+		drawText(doc, inputArray, qPerPage, heightQ, width, i);
 	}
 
 	// Save the PDF
