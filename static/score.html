@@ -9,22 +9,23 @@
     <script src="/static/js/score.js" type="text/javascript"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">GradeMe</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">GradeMe</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<<<<<<< HEAD
           <ul class="nav navbar-nav">
             <li><a href="/build">Build</a></li>
             <li><a href="/assign">Assign</a></li>
@@ -35,10 +36,23 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/logout">Logout</a></li>
           </ul>
+=======
+            <ul class="nav navbar-nav">
+                <li><a href="/build">Build</a></li>
+                <li><a href="/assign">Assign</a></li>
+                <li><a href="/upload">Upload</a></li>
+                <li><a href="/grade">Grade</a></li>
+                <li class="score"><a href="/score">Score<span class="sr-only">(current)</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
         </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    </div><!-- /.container-fluid -->
+</nav>
 
+<<<<<<< HEAD
     <div id="scores">
       <form class="form-horizontal">
       <fieldset>
@@ -63,27 +77,64 @@
             </select>
           </div>
         </div>
+=======
+<div id="scores">
+    <form class="form-horizontal">
+        <fieldset>
 
-      </fieldset>
-      </form>
+            <!-- Form Name -->
+            <legend>Student Scores</legend>
 
-      <!-- Button -->
-      <div class="form-group">
+            <!-- Select Multiple -->
+            <div class="form-group" id="studentsList">
+                <label class="col-md-4 control-label" for="student">Students</label>
+                <div class="col-md-6">
+                    <select id="student" name="student[]" class="form-control" multiple="multiple">
+                    </select>
+                </div>
+            </div>
+
+            <!-- Select Multiple -->
+            <div class="form-group" id="testsList">
+                <label class="col-md-4 control-label" for="test">Tests</label>
+                <div class="col-md-6">
+                    <select id="test" name="test[]" class="form-control" multiple="multiple">
+                    </select>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
+
+    <!-- Button -->
+    <div class="form-group">
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-3">
+<<<<<<< HEAD
           <button id="submit" name="submit" class="btn btn-primary">Load Scores</button>
+=======
+            <button id="submit" name="submit" class="btn btn-primary">Load Scores</button>
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
         </div>
-      </div>
     </div>
+</div>
 
 
+<<<<<<< HEAD
     <div id="scoreTable">
       <form class="form-horizontal">
       <fieldset>
+=======
+<div id="scoreTable">
+    <form class="form-horizontal">
+        <fieldset>
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
 
-      <!-- Form Name -->
-      <legend>Student Grades</legend>
+            <!-- Form Name -->
+            <legend>Student Grades</legend>
 
+<<<<<<< HEAD
       <table class="table">
           <thead>
             <th></th>
@@ -92,9 +143,38 @@
 
           </tbody>
       </table>
+=======
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Students</th>
+                    <th>Organic Chemistry Test 1</th>
+                    <th>Organic Chemistry Test 2</th>
+                    <th>Organic Chemistry Test 3</th>
+                    <th>Organic Chemistry Final</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Student 1</td>
+                    <td>99</td>
+                    <td>90</td>
+                    <td>78</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td>Student 2</td>
+                    <td>49</td>
+                    <td>76</td>
+                    <td>88</td>
+                    <td>37</td>
+                </tr>
+                </tbody>
+            </table>
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
 
-      </fieldset>
-      </form>
-    </div>
+        </fieldset>
+    </form>
+</div>
 </body>
 </html>
