@@ -18,30 +18,26 @@ var index = 0;
 var len;
 
 function next(){
-	index += 1;
-	if (index >= len){
-		index = 0;
-	}
-	clear();
+    index += 1;
+    if (index >= len){
+        index = 0;
+    }
+    clear();
 }
 function back(){
-	index -= 1;
-	if (index < 0){
-		index = len - 1;
-	}
-	clear();
+    index -= 1;
+    if (index < 0){
+        index = len - 1;
+    }
+    clear();
 }
 
 var render = function(imgArray, assignedQ, qPerPage){
-	len = imgArray.length;
+    len = imgArray.length;
 
-	document.getElementById("nextButton").onclick = next;
-	document.getElementById("backButton").onclick = back;	
+    document.getElementById("nextButton").onclick = next;
+    document.getElementById("backButton").onclick = back;
 
-	imgArray[index].onload = function() {
-		var qHeight = c.height/qPerPage;
+    renderAnimate(imgArray[index], assignedQ, qPerPage);
 
-		renderAnimate(imgArray[index], assignedQ, qPerPage);
-	};
-
-}
+};

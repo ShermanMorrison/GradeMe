@@ -51,7 +51,6 @@ $(document).ready(function() {
     $("#submit").on("click", function() {
         $.post("/grade", $("form").serialize(), function(result) {
             imgArray = result["result"];
-            console.log(imgArray)
             getimg();
         });
     })

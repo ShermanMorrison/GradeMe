@@ -134,7 +134,8 @@ var renderAnimate = function(imgURL, assignedQ, qPerPage) {
     img.onload = function() {
         ctx.drawImage(this, 0, (i - qPerPage * Math.floor(i / qPerPage)) * qHeight, c.width, c.height, 0, 0, c.width, c.height);
     };
-    img.src = "/img/imgURL";
+    console.log(imgURL)
+    img.src = "/img/" + imgURL["uuid"];
     document.getElementById("clrButton").onclick = clear;
 
 };
