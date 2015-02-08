@@ -15,18 +15,23 @@ var maxIndex = 10;
 var cycleIndex = 0;
 
 
-var render = function(imgArray, graderQArray, qPerPage){
+var render = function(imgArray, graderQArray, qPerPage,lowQ){
 
-	img.onload = function() {
-		// var qHeight = c.height/qPerPage;
-		// for (var count in qNumArray){
-		// 	for (var qIndex=0; i<graderQArray; qIndex++){
-		// 		var qNum = graderQArray[count][qIndex];
-		// 		ctx.drawImage(imgArray[count],0,i*qHeight,c.width,qHeight,0,count*qHeight,c.width,qHeight);
-		// 	}
-			
-			
-		// }
-	};
+
+	for (var imgIndex in imgArray){
+		// var myImg = document.createElement("img");
+		// myImg.src = imgArray[imgIndex].src;
+		imgArray[imgIndex].onload = function() {
+
+			var qHeight = c.height/qPerPage;
+			for (var count in graderQArray){
+				for (var qIndex=0; qIndex<graderQArray[count].length; qIndex++){
+					var qNum = graderQArray[count][qIndex];
+					// ctx.drawImage(imgArray[imgIndex],0,0);
+					ctx.drawImage(imgArray[count],0,qIndex*qHeight,c.width,qHeight,0,(qNum - lowQ)*qHeight,c.width,qHeight);
+				}
+			}
+		};
+	}
 
 }
