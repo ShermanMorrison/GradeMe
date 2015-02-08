@@ -77,6 +77,8 @@ def upload():
 
 @app.route("/grade", methods=["GET", "POST"])
 def grade():
+    if current_user.grader:
+        return redirect("/")
     if request.method == "GET":
         return app.send_static_file("grade.html")
     elif request.method == "POST":
@@ -90,6 +92,12 @@ def grade():
                         [f["professor"], f["test"], page])
             return jsonify({"result": cur.fetchall()})
 
+@app.route("/score", methods=["GET", "POST"])
+def score():
+    if request.method == "GET":
+        return app.send_static_file("score.html")
+    elif request.method == "POST":
+        pass
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -203,6 +211,12 @@ def question(test):
     with con:
         cur.execute("""SELECT question FROM grader2question WHERE tId = ? AND username = ?""",
                     [test, current_user.username])
+        return jsonify({"result": cur.fetchall()})
+
+@app.route("/student")
+def student():
+    with con:
+        cur.execute("""SELECT DISTINCT student FROM page""")
         return jsonify({"result": cur.fetchall()})
 
 @app.route("/img/<string:id>")

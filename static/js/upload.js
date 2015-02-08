@@ -20,7 +20,6 @@ $(document).ready(function() {
         var professors = result["result"];
         for (var i = 0; i < professors.length; i++) {
             var professor = professors[i];
-            console.log(professor["username"] == result["username"])
             $("#professor").append('<option value="' + professor["username"] +
                 (professor["username"] == result["username"] ? '" selected' : '"') + '>' +
                 professor["firstName"] + " " + professor["lastName"] + "</option>");
