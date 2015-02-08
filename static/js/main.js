@@ -18,6 +18,11 @@ $(document).ready(function() {
   });
 
   $("#submit").on("click", function() {
-    $.post("/makeForm", $("form").serialize(), addResult);
+    var questionTexts = [];
+    var numQuestions = $("#qTotal")[0].value;
+    for (var i = 1; i <= numQuestions; i++) {
+      questionTexts.push($("#q" + i)[0].value);
+    }
+    drawPDF(questionTexts, numQuestions)
   });
 });
