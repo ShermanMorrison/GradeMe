@@ -34,6 +34,26 @@ def index():
         return redirect(url_for("login"))
     return app.send_static_file("index.html")
 
+@app.route("/assign", methods=["GET", "POST"])
+def assign():
+    if request.method == "GET":
+        return app.send_static_file("assign.html")
+    elif request.method == "POST":
+        files = request.files.getlist("files[]")
+        for i in files:
+            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
+        return ('', 204)
+
+@app.route("/upload", methods=["GET", "POST"])
+def upload():
+    if request.method == "GET":
+        return app.send_static_file("upload.html")
+    elif request.method == "POST":
+        files = request.files.getlist("files[]")
+        for i in files:
+            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
+        return ('', 204)
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -43,9 +63,16 @@ def register():
                            VALUES (?, ?, ?, ?, ?)""",
                            (f['firstName'], f['lastName'], f['usernameR'], f['passwordR'], f['grader']))
             con.commit()
-        session['logged_in'] = True
         login_user(User(f['usernameR'], f['firstName'], f['lastName'], f['grader']))
-        flash("logged in")
+        session['logged_in'] = True
+
+        if f['grader'] == 1:
+            profs = request.form.getlist("professors[]")
+            for prof in profs:
+                cur.execute("""INSERT INTO person2person (professor, grader)
+                               VALUES (?, ?)""", [prof, f['usernameR']])
+            con.commit()
+
         return redirect("/")
     elif request.method == "GET":
         return app.send_static_file("register.html")
@@ -83,16 +110,6 @@ def logout():
     logout_user()
     return redirect("/")
 
-@app.route("/upload", methods=["GET", "POST"])
-def upload():
-    if request.method == "GET":
-        return app.send_static_file("upload.html")
-    elif request.method == "POST":
-        files = request.files.getlist("files[]")
-        for i in files:
-            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
-        return ('', 204)
-
 @app.route("/professor")
 def professor():
     with con:
@@ -105,14 +122,30 @@ def test():
     if request.method == "POST":
         f = request.form
         with con:
-            cur.execute("""INSERT INTO test (professor, qPerPage, qTotal)
-                           VALUES (?, ?, ?)""",
-                           (f['professor'], f['qPerPage'], f['qTotal']))
+            cur.execute("""INSERT INTO test (name, professor, qPerPage, qTotal)
+                           VALUES (?, ?, ?, ?)""",
+                           (f['testName'], f['professor'], f['qPerPage'], f['qTotal']))
             con.commit()
-            cur.execute("""SELECT * FROM contact WHERE contactId = ?""", (str(cur.lastrowid),))
-            contact = {"result": [cur.fetchone()]}
-            return jsonify(contact)
+        return ('', 204)
     elif request.method == "GET":
+        if current_user.grader == 1:
+            return redirect(url_for("index"))
+        with con:
+            cur.execute("""SELECT tId, name, qTotal FROM test WHERE professor = ?""", [current_user.username])
+            return jsonify({"result": cur.fetchall()})
+
+@app.route("/grader", methods=["GET", "POST"])
+def grader():
+    if request.method == "GET":
+        print current_user
+        if current_user.grader == 1:
+            return redirect(url_for("index"))
+        with con:
+            cur.execute("""SELECT firstName, lastName, username FROM person INNER JOIN professor2grader
+                           ON person.username = professor2grader.professor WHERE professor = ?""",
+                        [current_user.username])
+            return jsonify({"result": cur.fetchall()})
+    else:
         return 'hi'
 
 if __name__ == "__main__":

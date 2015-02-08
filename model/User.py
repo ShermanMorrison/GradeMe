@@ -28,3 +28,6 @@ class User(UserMixin):
 
     def __repr__(self):
         return '<User %r>' % (self.username)
+
+    def __str__(self):
+        return self.username
