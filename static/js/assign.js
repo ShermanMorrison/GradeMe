@@ -35,13 +35,13 @@ $(document).ready(function() {
 
     $("#test").on("change", updateQuestions);
 
-    setTimeout(function() {
-        $("#assign").on("click", function () {
+    $("#assign").on("click", function() {setTimeout(
+        function() {
             var toDelete = $("#questions option:selected");
             var l = toDelete.length;
             for (var i = l - 1; i >= 0; i--) {
                 toDelete[i].remove();
             }
-        });
-    }, 1000);
+        },10)
+    });
 });

@@ -3,6 +3,8 @@ __author__ = 'phrayezzen'
 from flask import Flask, request, redirect, flash, jsonify, url_for
 from werkzeug import secure_filename
 import sqlite3 as lite
+import uuid
+from math import ceil
 from flask.ext.login import LoginManager, login_user, logout_user, session, current_user
 
 from model import *
@@ -41,9 +43,9 @@ def assign():
     elif request.method == "POST":
         f = request.form
         qs = f.getlist("questions[]")
-        print qs
         for q in qs:
             with con:
+                cur.execute("""DELETE FROM grader2question WHERE tId = ? AND question = ?""", [f["test"], q])
                 cur.execute("""INSERT INTO grader2question (username, tId, question) VALUES (?, ?, ?)""",
                             [f["grader"], f["test"], q])
         return ('', 204)
@@ -54,8 +56,20 @@ def upload():
         return app.send_static_file("upload.html")
     elif request.method == "POST":
         files = request.files.getlist("files[]")
-        for i in files:
-            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
+        f = request.form
+        rev = f["reverse"] == "1"
+        with con:
+            cur.execute("""SELECT qPerPage, qTotal FROM test WHERE tId = ?""", [f["test"]])
+            c = cur.fetchone()
+            pTotal = int(ceil(c["qTotal"] / c["qPerPage"]))
+            p = (pTotal - 1 if rev else 0)
+            for i in files:
+                file_name = uuid.uuid1()
+                cur.execute("""INSERT INTO page (uuid, professor, tId, pageNum) VALUES (?, ?, ?, ?)""",
+                            [file_name, f["professor"], f["test"], p])
+                i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(file_name))
+                p += (-1 if rev else 1)
+                p %= pTotal
         return ('', 204)
 
 @app.route("/grade", methods=["GET", "POST"])
@@ -63,10 +77,17 @@ def grade():
     if request.method == "GET":
         return app.send_static_file("grade.html")
     elif request.method == "POST":
-        files = request.files.getlist("files[]")
-        for i in files:
-            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
-        return ('', 204)
+        f = request.form
+        with con:
+            cur.execute("""SELECT qPerPage, qTotal FROM test WHERE tId = ?""", [f["test"]])
+            c = cur.fetchone()
+            page = int(ceil(f["question"] / c["qPerPage"]))
+            cur.execute("""SELECT uuid FROM page WHERE professor = ? AND tId = ? AND page = ?""",
+                        [f["professor"], f["test"], page])
+            uuids = cur.fetchall()
+            for id in uuids:
+                pass
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -167,13 +188,14 @@ def grader():
 
 @app.route("/question/<string:test>")
 def question(test):
-    print test
-
     with con:
         cur.execute("""SELECT question FROM grader2question WHERE tId = ? AND username = ?""",
                     [test, current_user.username])
         return jsonify({"result": cur.fetchall()})
 
+@app.route("/img/<string:id>")
+def img(id):
+    app.send_static_file("/img/" + id)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

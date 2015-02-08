@@ -31,3 +31,10 @@ CREATE TABLE grader2question (
   question INTEGER,
   PRIMARY KEY(tId, question)
 );
+
+CREATE TABLE page (
+  uuid TEXT PRIMARY KEY,
+  professor TEXT,
+  tId INTEGER,
+  pageNum INTEGER
+)
