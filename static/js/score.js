@@ -23,15 +23,32 @@ $(document).ready(function() {
     });
 
     $("#submit").on("click", function() {
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $("thead").empty();
+=======
         $("th").empty();
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
+=======
+        $("th").empty();
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
         $("tbody").empty();
         var students = $("#student option:selected");
         var tests = $("#test option:selected");
         for (var i = 0; i < tests.length; i++) {
             $("th").append("<td>" + tests[i].value + "</td>");
         }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
         for (var j = 0; j < students.length; j++) {
             $("tbody").append("<tr><td>Student " + students[i] + "</td></tr>")
         }
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
+=======
+        for (var j = 0; j < students.length; j++) {
+            $("tbody").append("<tr><td>Student " + students[i] + "</td></tr>")
+        }
+>>>>>>> fc809c49c04141033bfa53fb5ab9753aab3a9534
     });
 });
