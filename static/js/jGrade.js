@@ -1,32 +1,18 @@
 "use strict";
 
-
-
-//image input
-var img= new Image();
-img.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/js/background.jpg";
-
-
+//////////////
+//global vars//
+//////////////
 
 var c=document.getElementById("canvas");
+c.width = 1600;
+c.height = 2379;
 var ctx=c.getContext("2d");
-ctx.drawImage(img,0,0);
-
-document.getElementById("clrButton").onclick = clear;
-
-//////////////
-//local vars//
-//////////////
 var text = "";
 var keysDown = {};
 var myPos = [0,0];
-var cycleIndex = 0;
 var maxIndex = 10;
-
-img.onload = function() {
-  ctx.drawImage(img,0,0,1600,1200,0,0,1600,1200);
-
-};
+var cycleIndex = 0;
 
 ///////////////////
 //event listeners//
@@ -54,6 +40,8 @@ document.addEventListener("mousemove", function(e){
 	}
 	else if (flag == 1){
 	ctx.beginPath();
+	ctx.lineWidth = 10;
+	ctx.strokeStyle = '#ff0000';
 	ctx.moveTo(lastPos[0], lastPos[1]);
 	ctx.lineTo(e.x, e.y);
 	ctx.stroke();
@@ -87,7 +75,7 @@ window.addEventListener("keyup", function(event){
 //clear button
 function clear(){
 	ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
-	ctx.drawImage(img,0,0);
+	getimg();
 }
 
 ///////////
@@ -102,45 +90,48 @@ window.onload = function(){
 var step = function(){
 	// do all updates and rendering
 	update();
-	render();
 	animate(step);
 }
 
 var update = function(){
-	cycleIndex += 1;
-	if (cycleIndex == maxIndex + 1){
+	cycleIndex -= 1;
+	if (cycleIndex < 0){
 		cycleIndex = 0;
 	}
 
 	for (var key in keysDown){
 
 		if (key == "13"){
-			//save image because you hit enter
-			// var cs = new CanvasSaver('./saveme.php')
-			// var btn = cs.generateButton('save an image!', c, 'myimage');
-			// document.appendChild(btn);
+			// you hit enter..
 		}
 
 		ctx.fillText(text, myPos.x, myPos.y);
-		if (cycleIndex == maxIndex){
-			//delete
+		if (cycleIndex == 0){
 			if (key == "8"){
-				text = text.substring(0, text.length - 1);
-				
-
+				// you hit backspace..
+				// text = text.substring(0, text.length - 1);
 			} 
 			else{
 				text += String.fromCharCode(key);
+				cycleIndex += maxIndex;
 			}
+
 		}
 		
 
 	}
 }
 
-var render = function(){
 
+var render = function(img){
 
+	img.onload = function() {
+	  ctx.drawImage(img,0,0);
+	};
+
+	ctx.drawImage(img,0,0);
+
+	document.getElementById("clrButton").onclick = clear;
 
 }
 

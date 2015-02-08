@@ -30,7 +30,7 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():
-    if not session['logged_in']:
+    if "logged_in" in session and not session['logged_in']:
         return redirect(url_for("login"))
     return app.send_static_file("index.html")
 
