@@ -119,11 +119,12 @@ def logout():
 def professor():
     with con:
         cur.execute("""SELECT firstName, lastName, username FROM person WHERE grader = ?""", (str(0),))
-        contact = {"result": cur.fetchall()}
+        contact = {"result": cur.fetchall(), "username": current_user.username}
         return jsonify(contact)
 
 @app.route("/test", methods=["GET", "POST"])
-def test():
+@app.route("/test/<string:prof>", methods=["GET", "POST"])
+def test(prof=None):
     if request.method == "POST":
         f = request.form
         with con:
@@ -133,10 +134,11 @@ def test():
             con.commit()
         return ('', 204)
     elif request.method == "GET":
-        if current_user.grader == 1:
+        if prof == '' and current_user.grader == True:
             return redirect(url_for("index"))
         with con:
-            cur.execute("""SELECT tId, name, qTotal FROM test WHERE professor = ?""", [current_user.username])
+            cur.execute("""SELECT tId, name, qTotal FROM test WHERE professor = ?""",
+                        [prof if prof else current_user.username])
             return jsonify({"result": cur.fetchall()})
 
 @app.route("/grader", methods=["GET", "POST"])
