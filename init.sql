@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS person;
 DROP TABLE IF EXISTS test;
-DROP TABLE IF EXISTS person2test;
-DROP TABLE IF EXISTS person2person;
+DROP TABLE IF EXISTS professor2grader;
+DROP TABLE IF EXISTS grader2question;
 
 CREATE TABLE person (
   firstName TEXT,
@@ -28,7 +28,6 @@ CREATE TABLE professor2grader (
 CREATE TABLE grader2question (
   username TEXT,
   tId INTEGER,
-  grader INTEGER,
   question INTEGER,
   PRIMARY KEY(tId, question)
 );

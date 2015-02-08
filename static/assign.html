@@ -38,7 +38,7 @@
     </nav>
 
     <div id="tests">
-      <form class="form-horizontal">
+      <form class="form-horizontal" method="POST" action="/assign">
       <fieldset>
 
       <!-- Form Name -->
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Select Multiple -->
-        <div class="form-group" id="questions">
+        <div class="form-group" id="questionsList">
           <label class="col-md-4 control-label" for="questions">Question Numbers</label>
           <div class="col-md-4">
             <select id="questions" name="questions[]" class="form-control" multiple="multiple">
@@ -64,18 +64,18 @@
 
         <!-- Select Multiple -->
         <div class="form-group" id="gradersList">
-          <label class="col-md-4 control-label" for="graders">Graders</label>
+          <label class="col-md-4 control-label" for="grader">Graders</label>
           <div class="col-md-4">
-            <select id="graders" name="graders[]" class="form-control" multiple="multiple">
+            <select id="grader" name="grader" class="form-control">
             </select>
           </div>
         </div>
 
       <!-- Button -->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="submit"></label>
+        <label class="col-md-4 control-label" for="assign"></label>
         <div class="col-md-4">
-          <button id="submit" name="submit" class="btn btn-primary">Create Template</button>
+          <button id="assign" name="assign" class="btn btn-primary">Assign</button>
         </div>
       </div>
 

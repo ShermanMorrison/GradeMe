@@ -24,8 +24,9 @@ cur = con.cursor()
 @lm.user_loader
 def load_user(id):
     c = cur.execute("SELECT * from person where username = (?)", [id])
-    user = c.fetchone()
-    return User(user['username'], user['firstName'], user['lastName'], bool(user['grader']))
+    userrow = c.fetchone()
+    print id
+    return User(userrow['username'], userrow['firstName'], userrow['lastName'], bool(userrow['grader']))
 
 @app.route("/")
 @app.route("/index")
@@ -39,9 +40,12 @@ def assign():
     if request.method == "GET":
         return app.send_static_file("assign.html")
     elif request.method == "POST":
-        files = request.files.getlist("files[]")
-        for i in files:
-            i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(i.filename))
+        f = request.form
+        qs = f.getlist("questions[]")
+        for q in qs:
+            with con:
+                cur.execute("""INSERT INTO grader2question (username, tId, question) VALUES (?, ?, ?)""",
+                            [f["grader"], f["test"], q])
         return ('', 204)
 
 @app.route("/upload", methods=["GET", "POST"])
@@ -63,15 +67,16 @@ def register():
                            VALUES (?, ?, ?, ?, ?)""",
                            (f['firstName'], f['lastName'], f['usernameR'], f['passwordR'], f['grader']))
             con.commit()
-        login_user(User(f['usernameR'], f['firstName'], f['lastName'], f['grader']))
-        session['logged_in'] = True
 
-        if f['grader'] == 1:
+        if f['grader'] == "1":
             profs = request.form.getlist("professors[]")
             for prof in profs:
-                cur.execute("""INSERT INTO person2person (professor, grader)
+                cur.execute("""INSERT INTO professor2grader (professor, grader)
                                VALUES (?, ?)""", [prof, f['usernameR']])
             con.commit()
+
+        login_user(User(f['usernameR'], f['firstName'], f['lastName'], f['grader']))
+        session['logged_in'] = True
 
         return redirect("/")
     elif request.method == "GET":
@@ -137,12 +142,11 @@ def test():
 @app.route("/grader", methods=["GET", "POST"])
 def grader():
     if request.method == "GET":
-        print current_user
         if current_user.grader == 1:
             return redirect(url_for("index"))
         with con:
-            cur.execute("""SELECT firstName, lastName, username FROM person INNER JOIN professor2grader
-                           ON person.username = professor2grader.professor WHERE professor = ?""",
+            cur.execute("""SELECT firstName, lastName, username FROM person WHERE username IN
+                          (SELECT grader FROM professor2grader WHERE professor = ?)""",
                         [current_user.username])
             return jsonify({"result": cur.fetchall()})
     else:
