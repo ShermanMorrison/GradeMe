@@ -5,24 +5,43 @@
 //////////////
 
 var c=document.getElementById("canvas");
-c.width = 1600;
-c.height = 2379;
+c.width = 850;
+c.height = 450;
 var ctx=c.getContext("2d");
 var text = "";
 var keysDown = {};
 var myPos = [0,0];
 var maxIndex = 10;
 var cycleIndex = 0;
+var index = 0;
 
+var len;
 
-var render = function(img, qNumArray, qPerPage){
+function next(){
+	index += 1;
+	if (index >= len){
+		index = 0;
+	}
+	clear();
+}
+function back(){
+	index -= 1;
+	if (index < 0){
+		index = len - 1;
+	}
+	clear();
+}
 
-	img.onload = function() {
+var render = function(imgArray, assignedQ, qPerPage){
+	len = imgArray.length;
+
+	document.getElementById("nextButton").onclick = next;
+	document.getElementById("backButton").onclick = back;	
+
+	imgArray[index].onload = function() {
 		var qHeight = c.height/qPerPage;
-		for (var count in qNumArray){
-			var i = qNumArray[count];
-			ctx.drawImage(img,0,i*qHeight,c.width,qHeight,0,count*qHeight,c.width,qHeight);
-		}
+
+		renderAnimate(imgArray[index], assignedQ, qPerPage);
 	};
 
 }
