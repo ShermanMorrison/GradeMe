@@ -28,17 +28,15 @@
 
 				//image input
 
+				var imgBg= new Image();
+				imgBg.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-1.png";
 				var img= new Image();
-				img.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-1.png";
-				var img2= new Image();
-				img2.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-2.png";
-				var imgArray = [img, img2];
+				img.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-2.png";
 
-				var graderQArray = [[5,7],[6,8]];
+				var index = 1;
 				var qPerPage = 4;
 
-				lowQ = 5;
-				render(imgArray, graderQArray, qPerPage, lowQ);
+				render(imgBg, img, index, qPerPage);
 			};
 		</script>
 

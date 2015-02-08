@@ -1,6 +1,7 @@
 *.pyc
 imgtest/
-idea/
+.idea/
+*.db
 
 # Windows image file caches
 Thumbs.db

@@ -91,6 +91,19 @@
 
             <!-- Form Name -->
             <legend>Question</legend>
+            <canvas id="canvas"></canvas>
+            <input id="clrButton" type="button" value="Clear"/>
+            <input id="nextButton" type="button" value="Next"/>
+            <input id="backButton" type="button" value="Back"/>
+            <script src="/static/js/jGrade.js"></script>
+            <script src="/static/js/jToGrade.js"></script>
+
+            <script>
+                var qPerPage, imgArray, assignedQ;
+                function getimg(){
+                    render(imgArray, assignedQ, qPerPage);
+                }
+            </script>
 
         </fieldset>
     </form>

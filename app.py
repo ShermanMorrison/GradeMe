@@ -57,18 +57,21 @@ def upload():
     elif request.method == "POST":
         files = request.files.getlist("files[]")
         f = request.form
-        rev = f["reverse"] == "1"
+        rev = "reverse" in f
         with con:
             cur.execute("""SELECT qPerPage, qTotal FROM test WHERE tId = ?""", [f["test"]])
             c = cur.fetchone()
             pTotal = int(ceil(c["qTotal"] / c["qPerPage"]))
             p = (pTotal - 1 if rev else 0)
+            s = 0
             for i in files:
-                file_name = uuid.uuid1()
-                cur.execute("""INSERT INTO page (uuid, professor, tId, pageNum) VALUES (?, ?, ?, ?)""",
-                            [file_name, f["professor"], f["test"], p])
+                file_name = str(uuid.uuid1())
+                cur.execute("""INSERT INTO page (uuid, professor, tId, pageNum, student) VALUES (?, ?, ?, ?, ?)""",
+                            [file_name, f["professor"], f["test"], str(p), str(s)])
                 i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(file_name))
                 p += (-1 if rev else 1)
+                if p == pTotal or p < 0:
+                    s += 1
                 p %= pTotal
         return ('', 204)
 
@@ -81,12 +84,11 @@ def grade():
         with con:
             cur.execute("""SELECT qPerPage, qTotal FROM test WHERE tId = ?""", [f["test"]])
             c = cur.fetchone()
-            page = int(ceil(f["question"] / c["qPerPage"]))
-            cur.execute("""SELECT uuid FROM page WHERE professor = ? AND tId = ? AND page = ?""",
+            print f["question"], c["qPerPage"]
+            page = int(ceil(int(f["question"]) / c["qPerPage"]))
+            cur.execute("""SELECT uuid FROM page WHERE professor = ? AND tId = ? AND pageNum = ?""",
                         [f["professor"], f["test"], page])
-            uuids = cur.fetchall()
-            for id in uuids:
-                pass
+            return jsonify({"result": cur.fetchall()})
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -149,8 +151,12 @@ def logout():
 @app.route("/professor")
 def professor():
     with con:
+        try:
+            uname = current_user.username
+        except:
+            uname = ''
         cur.execute("""SELECT firstName, lastName, username FROM person WHERE grader = ?""", (str(0),))
-        contact = {"result": cur.fetchall(), "username": current_user.username}
+        contact = {"result": cur.fetchall(), "username": uname}
         return jsonify(contact)
 
 @app.route("/test", methods=["GET", "POST"])
@@ -168,9 +174,15 @@ def test(prof=None):
         if prof == '' and current_user.grader == True:
             return redirect(url_for("index"))
         with con:
-            cur.execute("""SELECT tId, name, qTotal FROM test WHERE professor = ?""",
+            cur.execute("""SELECT tId, name, qTotal, qPerPage FROM test WHERE professor = ?""",
                         [prof if prof else current_user.username])
             return jsonify({"result": cur.fetchall()})
+
+@app.route("/qPerPage/<string:tid>")
+def qPerPage(tid):
+    with con:
+        cur.execute("""SELECT qPerPage FROM test WHERE tId = ?""", [tid])
+        return jsonify({"result": [cur.fetchone()]})
 
 @app.route("/grader", methods=["GET", "POST"])
 def grader():
@@ -195,7 +207,7 @@ def question(test):
 
 @app.route("/img/<string:id>")
 def img(id):
-    app.send_static_file("/img/" + id)
+    return app.send_static_file("img/" + id)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

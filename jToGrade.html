@@ -1,32 +1,26 @@
 <html>
-	<head>
-		<canvas id="canvas"></canvas>
-		<table>	
-			<tr>
-				<td>
-					<input id="clrButton" type="button" value="Clear"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<script src = "static/js/jToGrade.js"></script>
-				</td>
-			</tr>
-		</table>
+<head>
+    <canvas id="canvas"></canvas>
+    <table>
+        <tr>
+            <td>
+                <input id="clrButton" type="button" value="Clear"/>
+                <input id="nextButton" type="button" value="Next"/>
+                <input id="backButton" type="button" value="Back"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <script src = "static/js/jGrade.js"></script>
+                <script src = "static/js/jToGrade.js"></script>
+            </td>
+        </tr>
+    </table>
 
-		<script type="text/javascript" src="static/js/jsPDF/examples/js/jquery/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="static/js/jsPDF/examples/js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
-		
-		<script>
-		function getimg(){
-			//image input
-			var img= new Image();
-			img.src = "file:///C:/Users/Jonathan/Documents/GitHub/GradeMe/static/pdfs/Test-1.png";
-			var qNumArray = [1,3];
-			render(img, qNumArray, 4);
-		};
-		</script>
+    <script type="text/javascript" src="static/js/jsPDF/examples/js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="static/js/jsPDF/examples/js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
 
-	</head>
-	<body onLoad="getimg()"></body>
+
+</head>
+<body></body>
 </html>

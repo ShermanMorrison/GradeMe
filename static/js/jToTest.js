@@ -15,23 +15,16 @@ var maxIndex = 10;
 var cycleIndex = 0;
 
 
-var render = function(imgArray, graderQArray, qPerPage,lowQ){
+var render = function(imgBg, img, index, qPerPage){
 
+	var qHeight = c.height/qPerPage;
 
-	for (var imgIndex in imgArray){
-		// var myImg = document.createElement("img");
-		// myImg.src = imgArray[imgIndex].src;
-		imgArray[imgIndex].onload = function() {
-
-			var qHeight = c.height/qPerPage;
-			for (var count in graderQArray){
-				for (var qIndex=0; qIndex<graderQArray[count].length; qIndex++){
-					var qNum = graderQArray[count][qIndex];
-					// ctx.drawImage(imgArray[imgIndex],0,0);
-					ctx.drawImage(imgArray[count],0,qIndex*qHeight,c.width,qHeight,0,(qNum - lowQ)*qHeight,c.width,qHeight);
-				}
-			}
-		};
+	imgBg.onload = function(){
+		ctx.drawImage(imgBg,0,0);
+	}
+	
+	img.onload = function(){
+		ctx.drawImage(img,0,index * img.height/qPerPage,img.width,img.height,0,index*qHeight,c.width,qHeight);		
 	}
 
 }

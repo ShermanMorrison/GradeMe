@@ -123,14 +123,14 @@ var update = function(){
 }
 
 
-var render = function(img){
+var renderAnimate = function(img, assignedQ, qPerPage){
 
-	img.onload = function() {
-	  ctx.drawImage(img,0,0);
-	};
+	var qHeight = c.height/qPerPage;
 
-	ctx.drawImage(img,0,0);
+	var i = assignedQ;
 
+	// ctx.drawImage(img,0,0);
+	ctx.drawImage(img,0,(i - qPerPage * Math.floor(i/qPerPage))*qHeight,c.width,c.height,0,0,c.width,c.height);
 	document.getElementById("clrButton").onclick = clear;
 
 }

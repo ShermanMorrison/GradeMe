@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS person;
 DROP TABLE IF EXISTS test;
 DROP TABLE IF EXISTS professor2grader;
 DROP TABLE IF EXISTS grader2question;
+DROP TABLE IF EXISTS page;
 
 CREATE TABLE person (
   firstName TEXT,
@@ -36,5 +37,6 @@ CREATE TABLE page (
   uuid TEXT PRIMARY KEY,
   professor TEXT,
   tId INTEGER,
-  pageNum INTEGER
-)
+  pageNum INTEGER,
+  student INTEGER
+);

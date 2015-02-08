@@ -21,12 +21,17 @@ var updateQNums = function() {
         var q = $("#question");
         q.empty();
         var questions = result["result"];
-        console.log(questions)
         for (var i = 0; i < questions.length; i++) {
             var question = questions[i];
             q.append('<option value="' + question["question"] + '">' + question["question"] + "</option>");
         }
-    })
+    }).done(function() {
+
+        assignedQ = $("#question option:selected")[0].value;
+        $.getJSON("/qPerPage/" + $("#test option:selected")[0].value, null, function(result) {
+            qPerPage = result["result"]["qPerPage"];
+        });
+    });
 };
 
 $(document).ready(function() {
@@ -42,4 +47,12 @@ $(document).ready(function() {
     }).done(updateTests);
 
     $("#professor").on("change", updateTests);
+
+    $("#submit").on("click", function() {
+        $.post("/grade", $("form").serialize(), function(result) {
+            imgArray = result["result"];
+            console.log(imgArray)
+            getimg();
+        });
+    })
 });
