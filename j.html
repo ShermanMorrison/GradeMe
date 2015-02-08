@@ -1,3 +1,4 @@
+<html>
 <head>
 	<title>GradeMe</title>
 
@@ -10,6 +11,7 @@
 	<script type="text/javascript" src="jsPDF/dist/jspdf.debug.js"></script>
 	<script type="text/javascript" src="jsPDF/examples/js/basic.js"></script>
 
+	<script src = "draw.js"></script>
 	<script>
 		$(function() {
 			$("#accordion-basic, #accordion-text, #accordion-graphic").accordion({
@@ -19,8 +21,14 @@
 			$( "#tabs" ).tabs();
 			$(".button").button();
 		});
+
+		$(document).ready(function() {
+			$("button").on("click", function() {
+				drawPDF(["1","2","3","4","5"],2);
+			});
+		});
 	</script>
-	<script src = "j.js"></script>
+
 </head>
 
 <body>
@@ -48,4 +56,6 @@ doc.rect(60, 20, 10, 10);
 
 
 doc.save('Test.pdf');</pre>
-<a href="javascript:demo()" class="button">Get PDF!</a></p></div>
+<button class="button">Get PDF! </button></p></div>
+</body>
+</html>

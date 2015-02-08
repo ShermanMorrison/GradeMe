@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b113036b-eef2-46d4-91a8-3b1b59576606" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/background2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/download.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/j.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/jGrade.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/static/js/j.js" afterPath="$PROJECT_DIR$/static/js/draw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/j.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/j.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jGrade.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jGrade.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jsPDF" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/j.html" afterPath="$PROJECT_DIR$/j.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GradeMe.iws" />
@@ -32,38 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="1650">
-              <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
-              <folding>
-                <element signature="e#27#94#0" expanded="true" />
-                <marker date="1423367695000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
-                <marker date="1423367695000" expanded="true" signature="1253:1371" placeholder="INSERT INTO ..." />
-                <marker date="1423367695000" expanded="true" signature="2056:2097" placeholder="SELECT * fro..person..." />
-                <marker date="1423367695000" expanded="true" signature="2194:2261" placeholder="SELECT passw..person..." />
-                <marker date="1423367695000" expanded="true" signature="3426:3491" placeholder="SELECT first..person..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="1425">
               <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.416667" vertical-offset="65" max-vertical-offset="2475">
-              <caret line="29" column="102" selection-start-line="29" selection-start-column="102" selection-end-line="29" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -89,20 +62,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5539143" vertical-offset="0" max-vertical-offset="677">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
               <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="draw.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="draw.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/draw.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="885">
+            <state vertical-scroll-proportion="0.7533235" vertical-offset="0" max-vertical-offset="885">
               <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
               <folding />
             </state>
@@ -131,8 +104,8 @@
         <option value="$PROJECT_DIR$/static/index.html" />
         <option value="$PROJECT_DIR$/static/upload.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
-        <option value="$PROJECT_DIR$/static/js/draw.js" />
         <option value="$PROJECT_DIR$/static/js/main.js" />
+        <option value="$PROJECT_DIR$/static/js/draw.js" />
       </list>
     </option>
   </component>
@@ -540,11 +513,11 @@
           <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
           <folding>
             <element signature="e#27#94#0" expanded="true" />
-            <marker date="1423367695000" expanded="true" signature="745:786" placeholder="SELECT * fro..person..." />
-            <marker date="1423367695000" expanded="true" signature="1253:1371" placeholder="INSERT INTO ..." />
-            <marker date="1423367695000" expanded="true" signature="2056:2097" placeholder="SELECT * fro..person..." />
-            <marker date="1423367695000" expanded="true" signature="2194:2261" placeholder="SELECT passw..person..." />
-            <marker date="1423367695000" expanded="true" signature="3426:3491" placeholder="SELECT first..person..." />
+            <marker date="1423367695000" expanded="true" signature="-1:-1" placeholder="SELECT * fro..person..." />
+            <marker date="1423367695000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1423367695000" expanded="true" signature="-1:-1" placeholder="SELECT * fro..person..." />
+            <marker date="1423367695000" expanded="true" signature="-1:-1" placeholder="SELECT passw..person..." />
+            <marker date="1423367695000" expanded="true" signature="-1:-1" placeholder="SELECT first..person..." />
           </folding>
         </state>
       </provider>
@@ -581,18 +554,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/draw.js">
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="885">
-          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main.js">
+    <entry file="file://$PROJECT_DIR$/static/js/draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5539143" vertical-offset="0" max-vertical-offset="677">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.7533235" vertical-offset="0" max-vertical-offset="885">
+          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
           <folding />
         </state>
       </provider>
