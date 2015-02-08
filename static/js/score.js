@@ -23,12 +23,15 @@ $(document).ready(function() {
     });
 
     $("#submit").on("click", function() {
-        $("thead").empty();
+        $("th").empty();
         $("tbody").empty();
         var students = $("#student option:selected");
         var tests = $("#test option:selected");
         for (var i = 0; i < tests.length; i++) {
             $("th").append("<td>" + tests[i].value + "</td>");
+        }
+        for (var j = 0; j < students.length; j++) {
+            $("tbody").append("<tr><td>Student " + students[i] + "</td></tr>")
         }
     });
 });
