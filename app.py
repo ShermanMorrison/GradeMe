@@ -10,7 +10,7 @@ from flask.ext.login import LoginManager, login_user, logout_user, session, curr
 from model import *
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "/Users/phrayezzen/Documents/Projects/GradeMe/imgtest"
+app.config['UPLOAD_FOLDER'] = "/Users/phrayezzen/Documents/Projects/GradeMe/static/img"
 app.config['SECRET_KEY'] = "1234567890"
 
 lm = LoginManager()
@@ -61,18 +61,14 @@ def upload():
         with con:
             cur.execute("""SELECT qPerPage, qTotal FROM test WHERE tId = ?""", [f["test"]])
             c = cur.fetchone()
-            pTotal = int(ceil(c["qTotal"] / c["qPerPage"]))
-            p = (pTotal - 1 if rev else 0)
+            p = 0
             s = 0
             for i in files:
                 file_name = str(uuid.uuid1())
                 cur.execute("""INSERT INTO page (uuid, professor, tId, pageNum, student) VALUES (?, ?, ?, ?, ?)""",
                             [file_name, f["professor"], f["test"], str(p), str(s)])
                 i.save(app.config['UPLOAD_FOLDER'] + "/" + secure_filename(file_name))
-                p += (-1 if rev else 1)
-                if p == pTotal or p < 0:
-                    s += 1
-                p %= pTotal
+                p += 1
         return ('', 204)
 
 @app.route("/grade", methods=["GET", "POST"])
@@ -88,6 +84,7 @@ def grade():
             c = cur.fetchone()
             print f["question"], c["qPerPage"]
             page = int(ceil(int(f["question"]) / c["qPerPage"]))
+            print page
             cur.execute("""SELECT uuid FROM page WHERE professor = ? AND tId = ? AND pageNum = ?""",
                         [f["professor"], f["test"], page])
             return jsonify({"result": cur.fetchall()})

@@ -5,8 +5,8 @@
 //////////////
 
 var c=document.getElementById("canvas");
-c.width = 1600;
-c.height = 2379;
+c.width = 2000;
+c.height = 1600;
 var ctx=c.getContext("2d");
 var text = "";
 var keysDown = {};
@@ -14,7 +14,7 @@ var myPos = [0,0];
 var maxIndex = 10;
 var cycleIndex = 0;
 var OFFSET_X = -c.offsetLeft + 50;
-var OFFSET_Y = -c.offsetTop;
+var OFFSET_Y = -c.offsetTop -50;
 
 ///////////////////
 //event listeners//
@@ -134,11 +134,12 @@ var renderAnimate = function(imgURL, assignedQ, qPerPage) {
     // ctx.drawImage(img,0,0);
     var img = new Image();
     img.onload = function() {
-        ctx.drawImage(this, 0, 0, 10000, 10000)
+        ctx.drawImage(this, 0, 0, c.width, c.height * 3)
+        console.log(img.src)
 //        ctx.drawImage(this, 0, (i - qPerPage * Math.floor(i / qPerPage)) * qHeight,
 //            c.width, c.height, OFFSET_X, OFFSET_Y, c.width, c.height);
     };
-    img.src = "http://upload.wikimedia.org/wikipedia/commons/2/29/Large_Black_pigs.jpg"//"/img/" + imgURL["uuid"];
+    img.src = "/img/" + imgURL["uuid"];
 
 };
 document.getElementById("clrButton").onclick = clear;
